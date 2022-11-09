@@ -11,4 +11,20 @@ ansible all -m gather_facts
 # much informative report or for much specific server
 ansible all -m gather_facts --limit slave.vm
 
+#Running elevated ad-hoc commands
+##sample commad
+ansible all -m yum -a update_cache=True
+#
+##Elevated
+ansible all -m yum -a update_cache=True --become --ask-become-pass
+#
+##Install package
+ansible all -m yum -a name=nano --become --ask-become-pass
+##multiple argument (update the package)
+ansible all -m yum -a "name=nano state=latest" --become --ask-become-pass	
 
+
+
+
+https://www.learnlinux.tv/getting-started-with-ansible-05-running-elevated-commands/
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/yum_module.html
