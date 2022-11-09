@@ -5,14 +5,29 @@
   tasks:
 
   - name: Update repository index
-    yum: 
-     update_cache: yes
+    yum:
+      update_cache: yes
+    when: ansible_distribution in ["CentOS", "Red Hat Enterprise Linux"]
 
   - name: Install apache2 package
     yum:
       name: httpd
       state: latest
+    when: ansible_distribution in ["CentOS", "Red Hat Enterprise Linux"]
+
   - name: Add php support for apache
     yum:
       name: php
       state: latest
+    when: ansible_distribution in ["CentOS", "Red Hat Enterprise Linux"]
+
+  - name: Update repository index
+    apt:
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Install apache2 package
+    apt:
+      name: apache2
+      state: latest
+    when: ansible_distribution == "Ubuntu"
