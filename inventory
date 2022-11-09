@@ -1,1 +1,1 @@
-slave.vm
+slave.vm apache_package=httpd php_package=php
