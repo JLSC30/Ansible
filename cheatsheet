@@ -1,0 +1,14 @@
+ansible all --key-file ~/.ssh/id_ed25519 -i inventory -m ping
+#Try to connect if the server is up via ssh
+
+ansible.cfg contains the configuration for ansible that will override the default of ansible, you can now use 
+ansible all -m ping 
+
+#show all hosts
+ansible all --list-hosts
+or 
+ansible all -m gather_facts
+# much informative report or for much specific server
+ansible all -m gather_facts --limit slave.vm
+
+
