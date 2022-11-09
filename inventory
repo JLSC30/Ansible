@@ -1,1 +1,2 @@
+[web_servers]
 slave.vm apache_package=httpd php_package=php
