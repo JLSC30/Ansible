@@ -28,5 +28,15 @@ ansible-playbook --ask-become-pass install_apache.yml
 
 # you can use ansible_distribution == "CentOS" or ansible_distribution in ["CentOS", "Red Hat Enterprise Linux"] or ansible_distribution == "Red Hat Enterprise Linux" and ansible_distribution_version == "8.3 "
 
+#list all tags
+ansible-playbook --list-tags site.yml
+
+## run specific tags
+ansible-playbook --tags centos --ask-become-pass site.yml
+
+## run multiple tags#ansible-playbook --tags "ubuntu,centos" --ask-become-pass site.yml
+
+
+
 https://www.learnlinux.tv/getting-started-with-ansible-05-running-elevated-commands/
 https://docs.ansible.com/ansible/latest/collections/ansible/builtin/yum_module.html
