@@ -5,12 +5,14 @@
   pre_tasks:
   
   - name: Install updates (CentOS)
+    tags: always
     yum:
       update_only: yes
       update_cache: yes
     when: ansible_distribution == "CentOS"
 
   - name: Install updates (Ubuntu)
+    tags: always
     apt:
      upgrade: dist
      update_cache: yes
@@ -21,6 +23,7 @@
   tasks:
 
   - name: Install apache2 and php packages in CentOs and RHEL
+    tags: apache,apache2,centos
     yum:
       name:
         - httpd
@@ -29,6 +32,7 @@
     when: ansible_distribution in ["CentOS", "Red Hat Enterprise Linux"]
 
   - name: Install apache2 and php packages in Ubuntu
+    tags: apache,httpd,centos
     apt:
       name: 
         - apache2
