@@ -31,6 +31,15 @@
       state: latest
     when: ansible_distribution in ["CentOS", "Red Hat Enterprise Linux"]
 
+  - name: Copy default html file for site
+    tags: apache,apache2,httpd,centos
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
   - name: Install apache2 and php packages in Ubuntu
     tags: apache,httpd,centos
     apt:
